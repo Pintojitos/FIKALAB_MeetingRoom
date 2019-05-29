@@ -17,7 +17,7 @@ def sendwarningmail(eventSubject, eventOwner, eventID):
     mail.To = eventOwner
     mail.Subject = 'Room reservation for event ' + eventSubject
     mail.Body = "Please make sure you still need your room reservation for "+ eventSubject + ".\n\nIf you no longer require the room, delete or cancel the appointment.\n\nIn case no consistent movement is detected for the first 15 minutes of the room's reservation, the room will become vacant for other users.\n\nAny further questions report to: ..."
-    mail.SentOnBehalfOfName = "pdpinto@criticalsoftware.com" # Use then the email of the room
+    mail.SentOnBehalfOfName = "#ADD EMAIL HERE#" # Use then the email of the room
 
     #######################################
     ##  TO DO
@@ -46,10 +46,10 @@ def sendOrganizerCancelMail(eventSubject, eventOrganizer):
     outlook = win32com.client.Dispatch("outlook.application")
     mail = outlook.CreateItem(0)
     print("Event Organizer: "+ str(eventOrganizer))
-    mail.To = 'pedrodamaspinto@gmail.com' # Set this afterwards eventOrganizer
+    mail.To = '#ADD EMAIL HERE#' # Set this afterwards eventOrganizer
     mail.Subject = 'Room reservation for event ' + eventSubject + ' is now cancelled.'
     mail.Body = "Your room reservation for " + eventSubject + " as no movement was detected inside the room and it has passed 15 minutes of the start meeting time.\n\nAny further questions report to: ..."
-    mail.SentOnBehalfOfName = "pdpinto@criticalsoftware.com"  # Use then the email of the room
+    mail.SentOnBehalfOfName = "#ADD EMAIL HERE#"  # Use then the email of the room
 
     #######################################
     ##  TO DO
@@ -89,7 +89,7 @@ def addevent(start, subject):
     appointment.ReminderSet = True
     appointment.ReminderMinutesBeforeStart = 1
     appointment.MeetingStatus = 1
-    appointment.Recipients.Add("pdpinto@criticalsoftware.com")
+    appointment.Recipients.Add()#ADD EMAIL HERE#)
     appointment.Send()
     appointment.Save()
     return
