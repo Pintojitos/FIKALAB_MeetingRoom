@@ -9,6 +9,7 @@ GLOBAL_SNOOZE_TIME = 5
 import codecs
 
 def sendwarningmail(eventSubject, eventOwner, eventID):
+    print("Sending warning email!")
 
     outlook = win32com.client.Dispatch("outlook.application")
 
@@ -44,7 +45,7 @@ def sendwarningmail(eventSubject, eventOwner, eventID):
 def sendOrganizerCancelMail(eventSubject, eventOrganizer):
     outlook = win32com.client.Dispatch("outlook.application")
     mail = outlook.CreateItem(0)
-    print (eventOrganizer)
+    print("Event Organizer: "+ str(eventOrganizer))
     mail.To = 'pedrodamaspinto@gmail.com' # Set this afterwards eventOrganizer
     mail.Subject = 'Room reservation for event ' + eventSubject + ' is now cancelled.'
     mail.Body = "Your room reservation for " + eventSubject + " as no movement was detected inside the room and it has passed 15 minutes of the start meeting time.\n\nAny further questions report to: ..."
@@ -73,10 +74,11 @@ def sendOrganizerCancelMail(eventSubject, eventOrganizer):
 
     mail.Send()
 
+#Develop this method further
 def sendParticipantsCancelMail(eventSubject, eventParticipant):
     print(eventSubject, eventParticipant)
 
-
+#Not necessary
 def addevent(start, subject):
     oOutlook = win32com.client.Dispatch("Outlook.Application")
     appointment = oOutlook.CreateItem(1)  # 1=outlook appointment item
@@ -92,6 +94,7 @@ def addevent(start, subject):
     appointment.Save()
     return
 
+#Add a if statement to get only valid appointments (check appointment status)
 def getCalendarEntries(appointment):
     # Get all the entries for the day and returns the list of events and the appointment object
     appointment.Sort("[Start]")
