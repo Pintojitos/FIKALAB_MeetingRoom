@@ -107,9 +107,9 @@ def getCalendarEntries(appointment):
     appointment_obj = appointment.Restrict("[Start] >= '" + begin + "' AND [END] <= '" + end + "'")
     events = {'Start': [], 'Subject': [], 'Duration': [], 'Organizer':[], 'Global Appointment ID':[], 'Required Attendees':[]}
     #print(events)
-    i=0
+    i = 0
     for a in appointment_obj:
-        i=i+1
+        i = i+1
         # https://docs.microsoft.com/pt-pt/office/vba/api/outlook.appointmentitem.forceupdatetoallattendees
         # For more properties in appointment_obj
         adate = dateutil.parser.parse(str(a.Start))
@@ -203,12 +203,6 @@ if __name__=="__main__":
 
     signalNoPeople = 1
 
-    n = len(calendar.Items)
-    #for x in range(1, n):
-        # if calendar.Items(x).ReminderMinutesBeforeStart == 1:
-        #print(calendar.Items(x).Subject)
-        # if signalNoPeople == 1:
-        # print(calendar.Items(x).MeetingStatus)
 
     ###############################################################
     ##  TO DO   - please define a better and more readable workflow
