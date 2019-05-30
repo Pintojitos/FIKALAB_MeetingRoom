@@ -1,0 +1,5 @@
+Use
+ Exchange Web Service for office 365
+ PowerShell for scripting
+
+Eles podem providenciar uma sala para testes quando já tivermos um sistema bem definido e o que queremos fazer ao certo.
